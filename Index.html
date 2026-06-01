@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>DDI Checker</title>
+</head>
+<body>
+
+<h1>DDI Checker</h1>
+
+<form method="POST">
+
+    <input
+        type="text"
+        name="drugs"
+        placeholder="z.B. Warfarin, Aspirin"
+        style="width:400px;"
+    >
+
+    <button type="submit">Check</button>
+
+</form>
+
+<hr>
+
+{% for i in interactions %}
+
+<div>
+
+    <h3>{{ i.drug1 }} + {{ i.drug2 }}</h3>
+
+    <b>Severity:</b> {{ i.severity }}
+
+    <p>{{ i.description }}</p>
+
+    <p>
+        <b>Empfehlung:</b>
+        {{ i.recommendation }}
+    </p>
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+</body>
+</html>
